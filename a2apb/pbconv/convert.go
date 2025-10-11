@@ -404,7 +404,7 @@ func toProtoDataPart(part a2a.DataPart) (*a2apb.Part, error) {
 
 func toProtoPart(part a2a.Part) (*a2apb.Part, error) {
 	switch p := part.(type) {
-	case a2a.TextPart:
+	case *a2a.TextPart:
 		return &a2apb.Part{Part: &a2apb.Part_Text{Text: p.Text}}, nil
 	case a2a.DataPart:
 		return toProtoDataPart(p)
